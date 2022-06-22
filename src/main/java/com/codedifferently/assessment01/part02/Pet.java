@@ -3,7 +3,7 @@ package com.codedifferently.assessment01.part02;
 public abstract class Pet implements Animal {
     String name;
     Integer age;
-    PetOwner owner;
+    PetOwner owner ;
 
     /**
      * nullary constructor
@@ -12,6 +12,7 @@ public abstract class Pet implements Animal {
     public Pet() {
         this.age = 0;
         this.name = "";
+        this.owner = null;
     }
 
     /**
@@ -20,6 +21,7 @@ public abstract class Pet implements Animal {
     public Pet(String name) {
         this.age =0;
         this.name = name;
+        this.owner = null;
     }
 
 
@@ -29,6 +31,7 @@ public abstract class Pet implements Animal {
     public Pet(int age) {
         this.name = "";
         this.age = age;
+        this.owner = null;
     }
 
     /**
@@ -38,6 +41,7 @@ public abstract class Pet implements Animal {
     public Pet(String name, int age) {
         this.name = name;
         this.age = age;
+        this.owner = null;
     }
 
     /**
@@ -68,4 +72,14 @@ public abstract class Pet implements Animal {
     public PetOwner getOwner() {
         return this.owner;
     }
+
+
+
+    public static void main(String[] args) {
+        Pet anotherPet = new Dog();
+        Pet newPet = new Dog();
+        PetOwner po = new PetOwner("", newPet);
+        System.out.println(newPet.getOwner());
+    }
+
 }

@@ -14,6 +14,9 @@ public class PetOwner {
     public PetOwner(String name, Pet ... pets) {
         this.name = name;
         this.pets = pets;
+        for(int i = 0; i < pets.length; i++){
+            pets[i].setOwner(this);
+        }
 
     }
 
@@ -22,7 +25,7 @@ public class PetOwner {
      */
     public void addPet(Pet pet) {
         if(pets ==  null){
-            this.pets = new Pet[1];
+            this.pets = new Pet[0];
             pets[0] = pet;
         }
         else {
@@ -31,6 +34,10 @@ public class PetOwner {
             arrayList.toArray(pets);
 
         }
+
+        pet.setOwner(this);
+
+
     }
 
     /**
@@ -133,6 +140,7 @@ public class PetOwner {
     public Pet[] getPets() {
         return pets;
     }
+
 
 
 }
