@@ -1,5 +1,8 @@
 package com.codedifferently.assessment01.part01;
 
+import static com.codedifferently.assessment01.part01.BasicStringUtils.camelCase;
+import static com.codedifferently.assessment01.part01.BasicStringUtils.reverse;
+
 public class StringUtils {
     /**
      * Get all the words in the sentence and return it in a string array
@@ -7,7 +10,8 @@ public class StringUtils {
      * @return
      */
     public static String[] getWords(String sentence){
-        return null;
+        String[] words = sentence.split("[\\W_]+");
+        return words;
     }
 
     /**
@@ -16,7 +20,9 @@ public class StringUtils {
      * @return
      */
     public static String getFirstWord(String sentence){
-        return null;
+
+       return getWords(sentence)[0];
+
     }
 
     /**
@@ -25,7 +31,8 @@ public class StringUtils {
      * @return
      */
     public static String reverseFirstWord(String sentence){
-        return null;
+
+        return reverse(getWords(sentence)[0]);
     }
 
     /**
@@ -33,7 +40,9 @@ public class StringUtils {
      * @param sentence
      * @return
      */
-    public static String reverseFirstWordThenCamelCase(String sentence){return null;}
+    public static String reverseFirstWordThenCamelCase(String sentence){
+        return camelCase(reverse(getWords(sentence)[0]));
+    }
 
     /**
      * Remove Character at index
@@ -41,5 +50,10 @@ public class StringUtils {
      * @param index
      * @return
      */
-    public static String removeCharacterAtIndex(String str, int index){return null;}
+    public static String removeCharacterAtIndex(String str, int index){
+        StringBuilder output = new StringBuilder();
+        output.append(str);
+        output.deleteCharAt(index);
+        return output.toString();
+    }
 }

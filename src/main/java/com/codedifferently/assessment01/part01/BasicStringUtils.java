@@ -10,7 +10,20 @@ public class BasicStringUtils {
      * @param str
      * @return
      */
-    public static String camelCase(String str){return null;}
+    public static String camelCase(String str){
+        // Creates a string array splitting the string up everytime it encounters a space using regex
+        String[] words = str.split("[\\W_]+");
+        //Create new string builder
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+
+                word = word.isEmpty() ? word : Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase();
+
+            output.append(word);
+        }
+        return output.toString();
+    }
 
     /**
      * Reverse the string
@@ -19,7 +32,11 @@ public class BasicStringUtils {
      * @param str
      * @return
      */
-    public static String reverse(String str){return null;}
+    public static String reverse(String str){
+        StringBuilder output = new StringBuilder();
+        output.append(str);
+        return output.reverse().toString();
+    }
 
     /**
      * Camel case the first letter of every word, then reverse the string and remove all spaces
@@ -28,7 +45,17 @@ public class BasicStringUtils {
      * @param str
      * @return
      */
-    public static String reverseThenCamelCase(String str){ return null; }
+    public static String reverseThenCamelCase(String str){
+        String output = reverse(str);
+        return camelCase(output);
+    }
 
-    public static String removeFirstAndLastCharacter(String str){ return null; }
+    public static String removeFirstAndLastCharacter(String str){
+        StringBuilder output = new StringBuilder();
+        output.append(str);
+        output = output.deleteCharAt(str.length()-1);
+        output = output.deleteCharAt(0);
+        return output.toString();
+
+    }
 }
